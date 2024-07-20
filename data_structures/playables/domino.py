@@ -6,8 +6,8 @@ class Domino:
             -right: an integer representing the right side of the domino 0 to 6
     """
     def __init__(self, left: int, right: int):
-        self._left = left
-        self._right = right
+        self.left = left
+        self.right = right
 
     def __str__(self):
         return "[" + str(self.left) + " | " + str(self.right) + "]"
@@ -19,17 +19,17 @@ class Domino:
         self.right, self.left = self.left, self.right
 
     @property
-    def left(self):
-        return self.left
+    def left(self) -> int:
+        return self._left
 
     @left.setter
-    def left(self, value):
-        self.left = value
+    def left(self, value: int):
+        self._left = value
 
     @property
-    def right(self):
-        return self.right
+    def right(self) -> int:
+        return self._right
 
     @right.setter
-    def right(self, value):
-        self.right = value
+    def right(self, value: int):
+        self._right = value

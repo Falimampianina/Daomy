@@ -16,3 +16,16 @@ class DominoesSet:
         for domino in self.dominoes:
             output += str(domino) + "\n"
         return output
+
+    @property
+    def dominoes(self) -> list[Domino]:
+        return self._dominoes
+
+    @dominoes.setter
+    def dominoes(self, dominoes: list[Domino]):
+        self._dominoes = dominoes
+
+
+if __name__ == '__main__':
+    example = DominoesSet()
+    print(example)
