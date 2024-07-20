@@ -9,15 +9,6 @@ class Domino:
         self.left = left
         self.right = right
 
-    def __str__(self):
-        return "[" + str(self.left) + " | " + str(self.right) + "]"
-
-    def __eq__(self, other):
-        return self.left == other.left and self.right == other.right
-
-    def reverse(self):
-        self.right, self.left = self.left, self.right
-
     @property
     def left(self) -> int:
         return self._left
@@ -33,3 +24,12 @@ class Domino:
     @right.setter
     def right(self, value: int):
         self._right = value
+
+    def __str__(self):
+        return "[" + str(self.left) + " | " + str(self.right) + "]"
+
+    def __eq__(self, other) -> bool:
+        return self.left == other.left and self.right == other.right
+
+    def reverse(self):
+        self.right, self.left = self.left, self.right
