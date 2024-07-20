@@ -4,7 +4,7 @@ from data_structures.playables.domino import Domino
 
 
 class Player(ABC):
-    def __init__(self, name: str = None, score: int = 0, dominoes: list[Domino] = None) -> None:
+    def __init__(self, name: str = None, score: int = 0, dominoes: list[Domino] = None):
         self.name = name
         self.score = score
         self.dominoes = dominoes
@@ -37,7 +37,10 @@ class Player(ABC):
         self._score += score
 
     def __str__(self):
-        return f'{self.name} score: {self.score}'
+        output = f"{self.name} score: {self.score}\nDominoes:\n"
+        for domino in self.dominoes:
+            output += str(domino) + "\n"
+        return output
 
     @abstractmethod
     def play(self):
