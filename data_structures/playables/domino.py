@@ -37,3 +37,4 @@ class Domino:
 
     def reverse(self):
         self.right, self.left = self.left, self.right
+        return self
