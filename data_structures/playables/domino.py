@@ -6,8 +6,11 @@ class Domino:
             -right: an integer representing the right side of the domino 0 to 6
     """
     def __init__(self, left: int, right: int):
-        self.left = left
-        self.right = right
+        if left < 0 or right < 0 or left > 6 or right > 6:
+            raise ValueError("Domino's number must be between 0 and 6 (both included).")
+        else:
+            self.left = left
+            self.right = right
 
     @property
     def left(self) -> int:
