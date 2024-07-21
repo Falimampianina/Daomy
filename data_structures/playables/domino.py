@@ -29,7 +29,8 @@ class Domino:
         return "[" + str(self.left) + " | " + str(self.right) + "]"
 
     def __eq__(self, other) -> bool:
-        return self.left == other.left and self.right == other.right
+        return ((self.left == other.left and self.right == other.right) or
+                (self.left == other.right and self.right == other.left))
 
     def reverse(self):
         self.right, self.left = self.left, self.right
