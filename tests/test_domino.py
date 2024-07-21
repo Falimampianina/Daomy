@@ -13,3 +13,9 @@ class TestDomino(TestCase):
 
     def test_reverse(self):
         self.assertEqual(str(Domino(1, 2)), str(Domino(2, 1).reverse()))
+
+    def test_is_a_double(self):
+        self.assertTrue(Domino(1, 1).is_a_double())
+
+    def test_get_weight(self):
+        self.assertEqual(Domino(6, 6).get_weight(), 12)

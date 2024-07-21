@@ -38,3 +38,9 @@ class Domino:
     def reverse(self):
         self.right, self.left = self.left, self.right
         return self
+
+    def is_a_double(self) -> bool:
+        return self.left == self.right
+
+    def get_weight(self) -> int:
+        return self.right + self.left
