@@ -24,8 +24,3 @@ class DominoesSet:
     @dominoes.setter
     def dominoes(self, dominoes: list[Domino]):
         self._dominoes = dominoes
-
-
-if __name__ == '__main__':
-    example = DominoesSet()
-    print(example)

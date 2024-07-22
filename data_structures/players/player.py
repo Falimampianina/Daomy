@@ -1,9 +1,8 @@
-from abc import ABC, abstractmethod
-
 from data_structures.playables.domino import Domino
+from data_structures.playables.domino_snake import DominoSnake
 
 
-class Player(ABC):
+class Player:
     def __init__(self, name: str = None, score: int = 0, dominoes: list[Domino] = None):
         self.name = name
         self.score = score
@@ -36,12 +35,22 @@ class Player(ABC):
     def increase_score(self, score: int):
         self._score += score
 
+    def all_dominoes_placed(self) -> bool:
+        if len(self.dominoes) == 0:
+            return True
+        return False
+
+    def useless_hand(self, snake: DominoSnake) -> bool:
+        return all([not snake.check_if_domino_can_be_placed(domino) for domino in self.dominoes])
+
+    def get_total_weight_of_remaining_dominoes(self) -> int:
+        total = 0
+        for domino in self.dominoes:
+            total += domino.get_weight()
+        return total
+
     def __str__(self):
         output = f"{self.name} score: {self.score}\nDominoes:\n"
         for domino in self.dominoes:
             output += str(domino) + "\n"
         return output
-
-    @abstractmethod
-    def play(self):
-        pass
